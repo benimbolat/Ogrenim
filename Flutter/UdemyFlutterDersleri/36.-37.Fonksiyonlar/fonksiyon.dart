@@ -1,4 +1,4 @@
-void naim() {
+void main() {
   geriDonusuOlanFonk("Enes Bolat");
 }
 

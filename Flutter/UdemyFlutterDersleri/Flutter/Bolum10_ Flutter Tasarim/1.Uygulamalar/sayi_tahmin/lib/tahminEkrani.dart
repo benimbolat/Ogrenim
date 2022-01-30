@@ -33,16 +33,17 @@ class _TahminEkraniState extends State<TahminEkrani> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "Kalan Hak : 4",
+              "Kalan Hak : $kalanHak",
               style: TextStyle(color: Colors.pink, fontSize: 30),
             ),
             Text(
-              "Yardım : Tahmini Azalt",
+              "Yardım : $yonlendirme",
               style: TextStyle(color: Colors.black54, fontSize: 24),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: tfTahmin, // girilen bilgi buraya iletilir.
                 keyboardType: TextInputType.number,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -58,8 +59,39 @@ class _TahminEkraniState extends State<TahminEkrani> {
               child: ElevatedButton(
                 child: Text("Tahmin Et!"),
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => SonucEkrani()));
+                  setState(() {
+                    kalanHak = kalanHak - 1;
+                  });
+                  int tahmin = int.parse(tfTahmin.text);
+
+                  if (tahmin == ratgeleSayi) {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SonucEkrani(
+                                  sonuc: true,
+                                )));
+                    return; //butonun çalışmasını tam burada durduracak.
+                  }
+                  if (tahmin > ratgeleSayi) {
+                    setState(() {
+                      yonlendirme = "Tahmini Azalt";
+                    });
+                  }
+                  if (tahmin < ratgeleSayi) {
+                    setState(() {
+                      yonlendirme = "Tahmini Arttır";
+                    });
+                  }
+                  if (kalanHak == 0) {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SonucEkrani(
+                                  sonuc: false,
+                                )));
+                  }
+                  tfTahmin.text = "";
                 },
               ),
             ),

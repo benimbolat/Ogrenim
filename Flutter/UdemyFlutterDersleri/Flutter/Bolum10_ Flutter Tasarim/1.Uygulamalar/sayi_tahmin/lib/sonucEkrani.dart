@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SonucEkrani extends StatefulWidget {
-  const SonucEkrani({Key? key}) : super(key: key);
+  late bool sonuc;
+  SonucEkrani({required this.sonuc});
 
   @override
   _SonucEkraniState createState() => _SonucEkraniState();
@@ -18,9 +19,11 @@ class _SonucEkraniState extends State<SonucEkrani> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset("resimler/zar.png"),
+            widget.sonuc
+                ? Image.asset("resimler/mutluResim.png")
+                : Image.asset("resimler/uzgunResim.png"),
             Text(
-              "Kazandınız",
+              widget.sonuc ? "Kazandınız" : "Kaybettiniz",
               style: TextStyle(color: Colors.black54, fontSize: 36),
             ),
             SizedBox(

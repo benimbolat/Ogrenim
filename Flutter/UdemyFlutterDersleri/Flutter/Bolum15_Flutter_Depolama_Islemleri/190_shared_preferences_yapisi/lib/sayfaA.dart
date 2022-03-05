@@ -30,14 +30,12 @@ class SayfaA extends StatefulWidget {
       print("Arkadaş : $a");
     }
   }
-
-  @override
+}
+ @override
   void initState() {
     super.initState();
     veriOku();
   }
-}
-
 class _SayfaAState extends State<SayfaA> {
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "714539917079",
+    "firebase_url": "https://udemyegitim2-840e0-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "udemyegitim2-840e0",
+    "storage_bucket": "udemyegitim2-840e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714539917079:android:54f5f5cf783661152de152",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_kullanimi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714539917079-jl6d4h6mvnjf7pc9ktlmksumj2t2io1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD6M3qTl5NkN_q0qqk7_-FHVJmyXauaVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714539917079-jl6d4h6mvnjf7pc9ktlmksumj2t2io1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

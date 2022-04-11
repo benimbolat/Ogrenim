@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_kullanimi/SayacModel.dart';
 
 class IkinciSayfa extends StatelessWidget {
   const IkinciSayfa({Key? key}) : super(key: key);
@@ -13,12 +15,37 @@ class IkinciSayfa extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "0",
-              style: TextStyle(fontSize: 36),
+            Consumer<SayacModel>(
+              builder: (context, sayacModelNesne, child) {
+                return Text(
+                  //  Eğer sayaçta bir değişim olursa ve ardındanda notifyListeners
+                  //çalıştırılırsa burdaki consumer yapısını çalıştırır ve işlemi gerçekleştirir.
+
+                  "${sayacModelNesne.sayaciOku()}",
+                  style: TextStyle(fontSize: 36),
+                );
+              },
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Sayıyı Arttır")),
-            ElevatedButton(onPressed: () {}, child: Text("Sayıyı Azalt")),
+            Consumer<SayacModel>(
+              builder: (context, sayacModelNesne, child) {
+                return ElevatedButton(
+                  onPressed: () {
+                    sayacModelNesne.sayaciAttir();
+                  },
+                  child: Text("Arttır"),
+                );
+              },
+            ),
+            Consumer<SayacModel>(
+              builder: (context, sayacModelNesne, child) {
+                return ElevatedButton(
+                  onPressed: () {
+                    sayacModelNesne.sayaciAzalt(2);
+                  },
+                  child: Text("Azalt"),
+                );
+              },
+            ),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:bloc_kullanimi/IkinciSayfa.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,7 +36,21 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+          children: <Widget>[
+            Text(
+              "0",
+              style: TextStyle(fontSize: 36),
+            ),
+            ElevatedButton(
+              child: Text("Geçiş Yap"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => IkinciSayfa()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

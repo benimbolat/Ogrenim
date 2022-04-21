@@ -37,7 +37,13 @@ void main() {
 
   final newResult = convertToStandartDolar(100, dolarIndex: 13);
   final newResult2 = convertToStandartDolar(100);
-  final newREsult3 = convertToEuro(userMoney: 500);
+
+  final newREsult3 =
+      convertToEuro(userMoney: 500); //değişkene atanıp kullanımı.
+  print("NewResult3 $newREsult3 required parametre");
+
+  convertToEuro(userMoney: 500); //Değişkene tanımlamadan kullanımı.
+
   sayHello('aa');
 }
 

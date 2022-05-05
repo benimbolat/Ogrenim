@@ -40,10 +40,7 @@ class TextLearnView extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.right,
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                ?.copyWith(color: ProjectColors.welcomeColor),
+            style: Theme.of(context).textTheme.headline5?.copyWith(color: ProjectColors.welcomeColor),
           ),
           Text(userName ?? ''),
           Text(keys.welcome),

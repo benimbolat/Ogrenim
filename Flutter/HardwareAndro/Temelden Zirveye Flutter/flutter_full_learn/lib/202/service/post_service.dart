@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_full_learn/202/service/comment_model.dart';
 
+import 'comment_model.dart';
 import 'post_model.dart';
 
 abstract class IPostService {

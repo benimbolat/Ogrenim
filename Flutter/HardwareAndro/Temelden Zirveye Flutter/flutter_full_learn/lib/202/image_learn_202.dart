@@ -1,6 +1,7 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../product/global/resource_context.dart';
 
 class ImageLearn202 extends StatefulWidget {
   const ImageLearn202({Key? key}) : super(key: key);
@@ -13,23 +14,35 @@ class _ImageLearn202State extends State<ImageLearn202> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ImagePaths.instagram_logo.toWidget(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.read<ResourceContext>().clear();
+              },
+              icon: const Icon(Icons.remove))
+        ],
+        title: Text(context.read<ResourceContext>().model?.data?.length.toString() ?? ''),
+      ),
+      body: ImagePaths.ic_apple_with_school.toWidget(height: 100),
     );
   }
 }
 
 enum ImagePaths {
-  instagram_logo,
-  kirmizi_ejder_logo,
-  renkli_insan_figurleri_logo,
+// ignore: constant_identifier_names
+  ic_apple_with_school,
 }
 
-extension ImagePathExtension on ImagePaths {
+extension ImagePathsExtension on ImagePaths {
   String path() {
-    return 'assets/Images/png/$name.png';
+    return 'assets/png/$name.png';
   }
 
-  Widget toWidget() {
-    return Image.asset(path());
+  Widget toWidget({double height = 24}) {
+    return Image.asset(
+      path(),
+      height: height,
+    );
   }
 }

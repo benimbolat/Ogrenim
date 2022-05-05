@@ -1,63 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_learn/101/image_learn.dart';
+import 'package:flutter/services.dart';
+import '../101/image_learn.dart';
 
-class NotesDemos extends StatelessWidget {
-  const NotesDemos({Key? key}) : super(key: key);
+class NoteDemos extends StatelessWidget {
+  const NoteDemos({Key? key}) : super(key: key);
+  final _title = 'Create your first note';
+  final _description = 'Add a note ';
+  final _createNote = 'Create a Note';
+  final _importNotes = 'Import Notes';
 
   @override
   Widget build(BuildContext context) {
-    var boldLoginText = "Create Your First Note";
-
     return Scaffold(
-      backgroundColor: AppColours.aliceBlue,
-      appBar: AppBar(),
+      backgroundColor: Colors.blueGrey[50],
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+      ),
       body: Padding(
-        padding: (AppPadding.horizontalPadding),
+        padding: PaddingItems.horizontalPadding,
         child: Column(
           children: [
-            //İmage
-            ImageWidget(name: ImageItems().kirmizi_ejder_logo),
-            //BoldText
-            Text(
-              boldLoginText,
-              style: const TextStyle(
-                color: AppColours.black,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-            //Text
-            const Padding(
-              padding: AppPadding.verticalPadding,
-              child: _SubTitleWidgets(
-                  title:
-                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-            ),
-
-            //Button
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("Create A Note"),
-            ),
-            //TextButton
-            TextButton(
-              onPressed: () {},
-              child: Text("Import Notes"),
-            ),
+            PngImage(name: ImageItems().appleBookWithoutPath),
+            _TitleWidget(title: _title),
+            Padding(padding: PaddingItems.verticalPadding, child: _SubTitleWidget(title: _description * 10)),
+            const Spacer(),
+            _createButton(context),
+            TextButton(onPressed: () {}, child: Text(_importNotes)),
+            const SizedBox(height: ButtonHeights.buttonNormalHeight),
           ],
         ),
       ),
     );
   }
+
+  ElevatedButton _createButton(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {},
+        child: SizedBox(
+            height: ButtonHeights.buttonNormalHeight,
+            child: Center(
+                child: Text(
+              _createNote,
+              style: Theme.of(context).textTheme.headline5,
+            ))));
+  }
 }
 
-class _SubTitleWidgets extends StatelessWidget {
-  const _SubTitleWidgets({
-    Key? key,
-    this.textAlign = TextAlign.center,
-    required this.title,
-  }) : super(key: key);
-  final TextAlign? textAlign;
+/// Center text widget
+class _SubTitleWidget extends StatelessWidget {
+  const _SubTitleWidget({Key? key, this.textAlign = TextAlign.center, required this.title}) : super(key: key);
+  final TextAlign textAlign;
   final String title;
 
   @override
@@ -65,22 +57,33 @@ class _SubTitleWidgets extends StatelessWidget {
     return Text(
       title,
       textAlign: textAlign,
-      style:
-          const TextStyle(fontWeight: FontWeight.w400, color: AppColours.black),
+      style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black, fontWeight: FontWeight.w400),
     );
   }
 }
 
-class AppPadding {
-  static const horizontalPadding = EdgeInsets.symmetric(horizontal: 20);
-  static const verticalPadding = EdgeInsets.symmetric(vertical: 20);
+class _TitleWidget extends StatelessWidget {
+  const _TitleWidget({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: Theme.of(context).textTheme.headline5?.copyWith(color: Colors.black, fontWeight: FontWeight.w800),
+    );
+  }
 }
 
-class AppColours {
-  static const Color aliceBlue = Color(0xFFeff7fe);
-  static const Color romanSilver = Color(0xff878c95);
-  static const Color cyanAzure = Color(0xff518ab4);
-  static const Color red = Color.fromARGB(255, 255, 0, 0);
+class PaddingItems {
+  static const EdgeInsets horizontalPadding = EdgeInsets.symmetric(horizontal: 20);
+  static const EdgeInsets verticalPadding = EdgeInsets.symmetric(vertical: 10);
+}
 
-  static const Color black = Color.fromARGB(255, 0, 0, 0);
+class ButtonHeights {
+  static const double buttonNormalHeight = 50;
 }

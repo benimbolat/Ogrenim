@@ -25,14 +25,11 @@ class _FormLearnViewState extends State<FormLearnView> {
             DropdownButtonFormField<String>(
                 validator: FormFieldValidator().isNotEmpty,
                 items: const [
-                  DropdownMenuItem(child: Text('Ankara'), value: 'v'),
-                  DropdownMenuItem(child: Text('İstanbul'), value: 'v1'),
-                  DropdownMenuItem(child: Text('Yozgat'), value: 'v2'),
-                  DropdownMenuItem(child: Text("Adana"), value: 'v3'),
+                  DropdownMenuItem(child: Text('a'), value: 'v'),
+                  DropdownMenuItem(child: Text('a'), value: 'v2'),
+                  DropdownMenuItem(child: Text('a'), value: 'v3'),
                 ],
-                onChanged: (value) {
-                  print(value);
-                }),
+                onChanged: (value) {}),
             CheckboxListTile(value: true, onChanged: (value) {}),
             ElevatedButton(
                 onPressed: () {

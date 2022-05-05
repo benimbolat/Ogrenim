@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_learn/101/image_learn_1.dart';
 import '../101/icon_learn.dart';
+import '../101/image_learn.dart';
 
 class TabLearn extends StatefulWidget {
   const TabLearn({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class _TabLearnState extends State<TabLearn> with TickerProviderStateMixin {
     return TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: _tabController,
-        children: [const ImageLearnView(), IconLearnView(), IconLearnView()]);
+        children: [const ImageLaern(), IconLearnView(), IconLearnView(), IconLearnView()]);
   }
 }
 

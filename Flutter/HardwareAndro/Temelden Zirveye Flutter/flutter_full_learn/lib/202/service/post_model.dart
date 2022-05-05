@@ -6,7 +6,7 @@ class PostModel {
 
   PostModel({this.userId, this.id, this.title, this.body});
 
-//! Kod Yazılmaz
+  // Kod yazilmaz!
   PostModel.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
     id = json['id'];
@@ -14,7 +14,7 @@ class PostModel {
     body = json['body'];
   }
 
-//! Kod Yazılmaz
+  // Kod yazilmaz!
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['userId'] = userId;

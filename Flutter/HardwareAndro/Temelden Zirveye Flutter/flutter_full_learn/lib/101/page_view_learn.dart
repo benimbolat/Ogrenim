@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'icon_learn.dart';
+import 'image_learn.dart';
 import 'stack_learn.dart';
 
 class PageViewLearn extends StatefulWidget {
@@ -49,6 +50,7 @@ class _PageViewLearnState extends State<PageViewLearn> {
         controller: _pageController,
         onPageChanged: _updatePageIndex,
         children: [
+          const ImageLaern(),
           IconLearnView(),
           const StackLearn(),
         ],

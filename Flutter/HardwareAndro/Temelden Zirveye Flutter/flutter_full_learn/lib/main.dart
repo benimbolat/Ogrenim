@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '303/lottie_learn.dart';
 import 'product/constant/project_items.dart';
 import 'product/global/theme_notifer.dart';
 import 'product/inti/product_init.dart';
@@ -69,10 +70,17 @@ class MyApp extends StatelessWidget {
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
           builder: (context) {
-            return const Scaffold();
+            return const LottieLearn();
           },
         );
       },
+      // builder: (context,widget){
+
+      // },
+      // routes: NavigatorRoures().items,
+      // onGenerateRoute: onGenerateRoute,
+      // navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
+      home: const LottieLearn(),
     );
   }
 }

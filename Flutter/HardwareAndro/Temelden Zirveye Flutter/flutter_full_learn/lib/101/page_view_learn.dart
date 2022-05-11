@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'icon_learn.dart';
-import 'image_learn_teacher.dart';
 import 'stack_learn.dart';
 
 class PageViewLearn extends StatefulWidget {

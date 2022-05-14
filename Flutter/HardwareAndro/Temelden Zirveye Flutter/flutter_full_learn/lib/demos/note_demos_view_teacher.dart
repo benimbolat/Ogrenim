@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_full_learn/101/image_learn_1.dart';
+import 'package:flutter_full_learn/101/image_learn.dart';
 
 class NoteDemos extends StatelessWidget {
   const NoteDemos({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class NoteDemos extends StatelessWidget {
         padding: PaddingItems.horizontalPadding,
         child: Column(
           children: [
-            PngImage(name: ImageItems().kirmiziEjderLogo),
+            PngImage(name: ImageItems().appleBook),
             _TitleWidget(title: _title),
             Padding(padding: PaddingItems.verticalPadding, child: _SubTitleWidget(title: _description * 10)),
             const Spacer(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'language/language_items.dart';
 
 class CounterHelloButton extends StatefulWidget {
   const CounterHelloButton({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class CounterHelloButton extends StatefulWidget {
 
 class _CounterHelloButtonState extends State<CounterHelloButton> {
   int _counterCustom = 0;
-  final String _welcomeTitle = "Welcome";
+  final String _welcomeTitle = LanguageItems.welcomeTitle;
 
   void _updateCounter() {
     setState(() {
